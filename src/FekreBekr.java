@@ -6,16 +6,26 @@ public class FekreBekr {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner read = new Scanner(System.in);
+		int i = 1;
 		int a = 0;
 		String s = "";
-        System.out.println("Lotfan tedat talash ta javab ra vared konid:\n");
-        a = read.nextInt();
-        s = passwordmaker(5);
-
-        System.out.println("s is : " + s);
+		while(i!=-1) {
+			a=0;
+			System.out.println("please enter number of iteration:\n");
+			if(read.hasNextInt()) {
+				a = read.nextInt();
+				s = colorMaker(5);
+				System.out.println("s is : " + s + "\n");
+				System.out.println("press -1 to end or other numbers to retry\n");
+			}else {
+				System.out.println("try to enter correct iteration it should be a Number greater than ZERO\n");
+			}
+		}
 
 	}
-	private static String passwordmaker(int size){
+	
+	
+	private static String colorMaker(int size){
         String s="";
         String alphabets = "OYPBRWGP";
         Random random = new Random();
