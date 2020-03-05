@@ -75,8 +75,23 @@ public class FekreBekr {
 	}
 	
 	private static boolean checkAnswer(String guess,String s) {
-		boolean i = false;
-		return i;
+		if(guess.compareTo(s)==0) {
+			System.out.print("     :#####\n");	
+			return true;
+		}else {
+			String showingTest = "     :";
+			for(int i=0;i<guess.length();i++) {
+				if(guess.charAt(i)==s.charAt(i)) {
+					showingTest = showingTest + "#";
+				}else if(s.indexOf(guess.charAt(i))>=0) {
+					showingTest = showingTest + "+";
+				}else {
+					showingTest = showingTest + "-";
+				}
+			}
+			System.out.print(showingTest + "\n");
+		}
+		return false;
 	}
 	
 	private static boolean checkGuessString(String guess) {
