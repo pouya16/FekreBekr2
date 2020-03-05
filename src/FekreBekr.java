@@ -23,7 +23,7 @@ public class FekreBekr {
 					if(guess.length()==5){
 						if(checkGuessString(guess)) {
 							if(checkAnswer(guess,s)) {
-								System.out.println("answer is right");
+								System.out.println("That's right =)");
 								j=a;
 							}
 						}else {
@@ -32,6 +32,22 @@ public class FekreBekr {
 						}
 						
 					}else if(guess.length()==1){
+						try {
+							int function = Integer.parseInt(guess);
+							if(function==1) {
+								showAnswer(s);
+							}else if(function==0) {
+								System.out.println("You end this game successfully");
+								j=a;
+							}else {
+								System.out.println("Your answer should be 0 or 1 or five chars for prediction");
+								j--;
+							}
+							
+						}catch(Exception e) {
+							System.out.println("Your answer should be 0 or 1 or five chars for prediction");
+							j--;
+						}
 						
 					}else {
 						System.out.println("Your answer should be 0 or 1 or five chars for prediction");
@@ -48,9 +64,29 @@ public class FekreBekr {
 
 	}
 	
-	private static boolean checkGuessString(String guess) {
+	private static void showAnswer(String s) {
+		System.out.print(s);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.print("\b\b\b\b\b");	
+	}
+	
+	private static boolean checkAnswer(String guess,String s) {
 		boolean i = false;
 		return i;
+	}
+	
+	private static boolean checkGuessString(String guess) {
+		String alphabets = "OYPBRWGP";
+		for(int i = 0;i<guess.length();i++) {
+			if(alphabets.indexOf(guess.charAt(i))<0){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	
